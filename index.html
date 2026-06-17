@@ -87,10 +87,11 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── Hero ── */
+/* ── Hero ── */
     #hero {
       padding-top: 140px;
       padding-bottom: 80px;
+      background: #1E3A5F;
     }
     .hero-inner {
       display: flex;
@@ -102,17 +103,16 @@
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      border: 2px solid var(--border);
+      border: 2px solid rgba(255,255,255,0.2);
       object-fit: cover;
       background: var(--surface);
-      /* ── Replace src with your photo path, e.g. src="assets/photo.jpg" ── */
     }
     .hero-photo-placeholder {
       flex-shrink: 0;
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      border: 2px solid var(--border);
+      border: 2px solid rgba(255,255,255,0.2);
       background: var(--surface);
       display: flex;
       align-items: center;
@@ -128,9 +128,9 @@
       display: inline-block;
       font-family: var(--mono);
       font-size: 12px;
-      color: var(--accent);
-      background: rgba(88, 166, 255, 0.08);
-      border: 1px solid rgba(88, 166, 255, 0.2);
+      color: #93C5FD;
+      background: rgba(147, 197, 253, 0.1);
+      border: 1px solid rgba(147, 197, 253, 0.3);
       border-radius: 4px;
       padding: 3px 10px;
       margin-bottom: 16px;
@@ -142,9 +142,10 @@
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
+      color: #F8FAFC;
     }
     .hero-sub {
-      color: var(--text-muted);
+      color: #CBD5E1;
       font-size: 16px;
       margin-bottom: 28px;
     }
@@ -168,10 +169,10 @@
     .btn-primary:hover { opacity: 0.88; text-decoration: none; }
     .btn-secondary {
       background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #F8FAFC;
     }
-    .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+    .btn-secondary:hover { border-color: #93C5FD; text-decoration: none; }
 
     /* ── Section headings ── */
     .section-label {
