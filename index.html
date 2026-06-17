@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camilo Morales — QA & Cybersecurity</title>
+  <meta name="description" content="Portfolio of Camilo Morales — QA Engineer transitioning into Cybersecurity. Based in Perth, Australia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:        #0D1117;
+      --surface:   #161B22;
+      --border:    #21262D;
+      --accent:    #58A6FF;
+      --accent-dim:#1F4E8C;
+      --text:      #E6EDF3;
+      --text-muted:#8B949E;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+      --radius:    8px;
+      --max-w:     960px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 80px 0;
+    }
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .hero-photo {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      object-fit: cover;
+      background: var(--surface);
+      /* ── Replace src with your photo path, e.g. src="assets/photo.jpg" ── */
+    }
+    .hero-photo-placeholder {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .hero-text { flex: 1; }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: rgba(88, 166, 255, 0.08);
+      border: 1px solid rgba(88, 166, 255, 0.2);
+      border-radius: 4px;
+      padding: 3px 10px;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s, background 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0D1117;
+    }
+    .btn-primary:hover { opacity: 0.88; text-decoration: none; }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* ── Section headings ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 32px;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+    .status-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .status-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .status-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .status-item:last-child { margin-bottom: 0; }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .status-dot.dim { background: var(--text-muted); }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .skill-group h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .skill-list li {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent-dim); }
+    .project-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .project-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      flex: 1;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* ── Learning Log ── */
+    .log-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .log-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .log-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .log-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .log-card h3 {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .log-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .log-entry-item {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .log-entry-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .log-entry-item span {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── Contact ── */
+    .contact-inner {
+      max-width: 560px;
+    }
+    .contact-inner p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .log-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <span class="nav-logo">camilo_morales ~$</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#log">Learning Log</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!--
+          PHOTO: Replace this placeholder div with an <img> tag pointing to your photo.
+          Example: <img class="hero-photo" src="assets/photo.jpg" alt="Camilo Morales" />
+          Place your photo file in the same repo folder (e.g. an /assets subfolder).
+        -->
+        <div class="hero-photo-placeholder">your<br>photo<br>here</div>
+
+        <div class="hero-text">
+          <div class="hero-tag">[ QA → Security ]</div>
+          <h1>Camilo Morales</h1>
+          <p class="hero-sub">QA Engineer transitioning into Cybersecurity &mdash; Perth, Australia</p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://www.linkedin.com/in/camilo-morales-qa/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <a href="https://github.com/Jcma14" target="_blank" class="btn btn-secondary">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2>About Me</h2>
+      <div class="about-grid">
+
+        <div class="about-text">
+          <p>
+            My background is in <strong>QA, Finance, and Logistics</strong> — not a traditional path into cybersecurity, but it gave me habits that carry over: testing assumptions, documenting clearly, and paying attention to detail.
+          </p>
+          <p>
+            I finished my QA Engineering bootcamp at TripleTen and I'm now deepening my technical foundation through hands-on labs, a home lab setup, and self-directed study.
+          </p>
+          <p>
+            I learn by doing. Right now that means running a home lab with a Kali Linux VM, working through platforms like KC7 and picoCTF, and keeping a public learning log of everything I pick up along the way.
+          </p>
+          <p>
+            In <strong>Semester 2, 2026</strong>, I'll begin a Master of Cyber Security at <strong>Edith Cowan University (ECU)</strong> in Perth — with a scholarship and a mandatory industry placement in the final semester.
+          </p>
+        </div>
+
+        <div class="status-card">
+          <h3>Current Status</h3>
+          <div class="status-item">
+            <div class="status-dot"></div>
+            <span>Accepted — Master of Cyber Security, ECU (Semester 2, 2026)</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot"></div>
+            <span>Running a cybersecurity home lab: Kali Linux VM, SSH, network tools</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot"></div>
+            <span>Working through KC7 CyLab (KQL threat hunting) and picoCTF challenges</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot"></div>
+            <span>Maintaining an Obsidian Cyber Vault and a public learning log</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot dim"></div>
+            <span>✓ Graduated — QA Engineering Bootcamp, TripleTen</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Tooling</p>
+      <h2>Skills & Tools</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>SQL</li>
+            <li>KQL</li>
+            <li>Bash (learning)</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>QA & Testing</h3>
+          <ul class="skill-list">
+            <li>Selenium</li>
+            <li>Postman</li>
+            <li>Pytest</li>
+            <li>Android Studio</li>
+            <li>Swagger</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Security</h3>
+          <ul class="skill-list">
+            <li>Kali Linux</li>
+            <li>Wireshark</li>
+            <li>SSH</li>
+            <li>KC7 / picoCTF</li>
+            <li>Home Lab Setup</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Workflow</h3>
+          <ul class="skill-list">
+            <li>JIRA</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>Obsidian</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Work</p>
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Urban Grocers — Automated API Testing</h3>
+          <p>Python-based automated API testing project. Covers authentication handling, structured test scripts, and validation of positive and negative API scenarios.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span>
+            <span class="tag">Pytest</span>
+            <span class="tag">Requests</span>
+          </div>
+          <a class="project-link" href="https://github.com/Jcma14/Urban-Grocers-Automated-Testing" target="_blank">
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Urban Routes — Selenium UI Automation</h3>
+          <p>End-to-end automated testing of a taxi booking web app. Implemented Page Object Model (POM) and validated complete booking flows and UI behaviour.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span>
+            <span class="tag">Selenium</span>
+            <span class="tag">Pytest</span>
+            <span class="tag">POM</span>
+          </div>
+          <a class="project-link" href="https://github.com/Jcma14/Qa-Selenium-Project-Urban-Routes" target="_blank">
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Urban Grocers — Manual API Testing</h3>
+          <p>Manual API and backend testing for an online grocery service. Validated functionality against documented requirements using structured test cases and bug reports.</p>
+          <div class="project-stack">
+            <span class="tag">Postman</span>
+            <span class="tag">Swagger</span>
+            <span class="tag">JIRA</span>
+          </div>
+          <a class="project-link" href="https://github.com/Jcma14/Urban-Grocers-API-Testing-" target="_blank">
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Urban Lunch — Mobile App Testing</h3>
+          <p>Mobile testing for a food ordering app on Android Studio. Validated ordering flows, geolocation permissions, and error message handling.</p>
+          <div class="project-stack">
+            <span class="tag">Android Studio</span>
+            <span class="tag">JIRA</span>
+          </div>
+          <a class="project-link" href="https://github.com/Jcma14/Urban-Lunch-Mobile-App-Testing" target="_blank">
+            View on GitHub →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Learning Log ── -->
+  <section id="log">
+    <div class="container">
+      <p class="section-label">Documentation</p>
+      <h2>Learning Log</h2>
+      <div class="log-inner">
+
+        <div class="log-text">
+          <p>
+            My public learning log is where I document everything I study — from QA fundamentals to cybersecurity labs, networking concepts, and hands-on tool usage.
+          </p>
+          <p>
+            It's a live record of how I learn, not just what I've learned. Every lab, every platform, every concept gets written up.
+          </p>
+          <a href="https://github.com/Jcma14/My-learning-log" target="_blank" class="btn btn-primary" style="margin-top:8px; display:inline-block;">
+            View Learning Log →
+          </a>
+          <div class="log-topics">
+            <span class="tag">KQL</span>
+            <span class="tag">Threat Hunting</span>
+            <span class="tag">KC7 CyLab</span>
+            <span class="tag">picoCTF</span>
+            <span class="tag">SSH</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">API Testing</span>
+            <span class="tag">Python Automation</span>
+            <span class="tag">QA Fundamentals</span>
+          </div>
+        </div>
+
+        <div class="log-card">
+          <h3>// recent activity</h3>
+          <div class="log-entry">
+            <div class="log-entry-item">
+              <span>KC7 · CyLab</span>
+              Working through "A Rap Beef" — Module 2. KQL queries for threat hunting across log sources.
+            </div>
+            <div class="log-entry-item">
+              <span>Home Lab</span>
+              Kali Linux VM connected via SSH from Mac. Configuring MCP server integration for tooling.
+            </div>
+            <div class="log-entry-item">
+              <span>picoCTF</span>
+              Active on CyLab platform challenges. Focused on forensics and general skills categories.
+            </div>
+            <div class="log-entry-item">
+              <span>ECU · Semester 2, 2026</span>
+              Master of Cyber Security accepted. Scholarship applied. Industry placement in final semester.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in touch</p>
+      <h2>Contact</h2>
+      <div class="contact-inner">
+        <p>
+          Open to conversations about cybersecurity roles, QA opportunities, or anything in between. Feel free to reach out on LinkedIn or by email.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/camilo-morales-qa/" target="_blank" class="btn btn-primary">LinkedIn</a>
+          <a href="mailto:camilomorales.qa@gmail.com" class="btn btn-secondary">camilomorales.qa@gmail.com</a>
+          <a href="https://github.com/Jcma14" target="_blank" class="btn btn-secondary">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <span>Camilo Morales · jcma14.github.io · built with HTML & CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>
